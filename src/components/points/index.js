@@ -14,6 +14,10 @@ const Points = props => {
   const onEnterDown = evt => {
     if (evt.keyCode !== 13 || inputValue === ``) return;
     evt.preventDefault();
+
+    const check = props.points.find((point) => point.name === inputValue);
+    if (check) return;
+    
     props.createPoint(inputValue);
     setInputValue(``);
   };
